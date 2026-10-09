@@ -189,13 +189,17 @@ SmartStock/
 
 ### Step 1: Clone Repository & Install Dependencies
 ```bash
-git clone https://github.com/your-username/SmartStock.git
-cd SmartStock
+git clone https://github.com/AnantVyas149/smartstock-inventory-optimization.git
+cd smartstock-inventory-optimization
 pip install -r requirements.txt
 ```
 
-### Step 2: Ingest Data & Execute Pipeline
-The pipeline can be executed sequentially:
+### Step 2: Run Master Pipeline (All 7 Steps in One Command)
+```bash
+python main.py
+```
+
+*Alternatively, execute the individual modules sequentially:*
 ```bash
 # 1. Ingest M5 data and generate operational supply chain layers
 python src/data_pipeline.py
