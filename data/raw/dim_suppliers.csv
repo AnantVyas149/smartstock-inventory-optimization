@@ -1,0 +1,9 @@
+supplier_id,supplier_name,country,tier,contracted_lead_time_days,lead_time_std_days,target_on_time_rate,historical_on_time_rate,payment_terms
+SUP-001,Apex Precision Components,USA,Tier 1,7,1.2,0.95,0.96,Net 30
+SUP-002,Titan Heavy Hydraulics,Germany,Tier 1,21,3.8,0.92,0.91,Net 60
+SUP-003,Vortex Fasteners & Seals,USA,Tier 2,5,0.8,0.98,0.97,Net 30
+SUP-004,Pacific Micro-Electronics,Taiwan,Tier 1,28,5.2,0.9,0.84,Letter of Credit
+SUP-005,Kinetic Pneumatics Corp,Japan,Tier 2,14,2.1,0.94,0.93,Net 45
+SUP-006,Beacon Sensor Technologies,South Korea,Tier 2,18,3.4,0.92,0.88,Net 45
+SUP-007,Atlas Structural Alloy Ltd,USA,Tier 1,10,1.5,0.96,0.95,Net 30
+SUP-008,Nordic Valve Automation,Sweden,Tier 3,25,4.9,0.88,0.81,Net 60

@@ -1,0 +1,235 @@
+// ==============================================================================
+// SMARTSTOCK ENTERPRISE DAX MEASURE LIBRARY
+// Power BI Semantic Model: Inventory Intelligence & Supply Chain Optimization
+// ==============================================================================
+
+// ==============================================================================
+// PAGE 1: EXECUTIVE OVERVIEW MEASURES
+// ==============================================================================
+
+// 1.1 Total Current Inventory Capital (On-Hand)
+Total Inventory Value = 
+SUMX(
+    fact_inventory_snapshot,
+    fact_inventory_snapshot[on_hand_inventory] * RELATED(dim_products[unit_cost])
+)
+
+// 1.2 Total Inventory Units On-Hand
+Total On Hand Units = 
+SUM(fact_inventory_snapshot[on_hand_inventory])
+
+// 1.3 Total Units on Order (Pending Inbound POs)
+Total On Order Units = 
+SUM(fact_inventory_snapshot[on_order_inventory])
+
+// 1.4 High-Risk SKU-Node Exposure Count
+High Risk SKU Count = 
+CALCULATE(
+    COUNTROWS(fact_inventory_snapshot),
+    fact_inventory_snapshot[is_stockout_risk] = 1
+)
+
+// 1.5 Simulated Fill Rate (Optimized Policy)
+Simulated Fill Rate Optimized = 
+VAR Fulfilled = CALCULATE(SUM(fact_inventory_simulation[fulfilled_units]), fact_inventory_simulation[policy_name] = "SmartStock Optimized")
+VAR TotalDemand = CALCULATE(SUM(fact_inventory_simulation[demand_units]), fact_inventory_simulation[policy_name] = "SmartStock Optimized")
+RETURN
+DIVIDE(Fulfilled, TotalDemand, 0)
+
+// 1.6 Simulated Fill Rate (Baseline Policy)
+Simulated Fill Rate Baseline = 
+VAR Fulfilled = CALCULATE(SUM(fact_inventory_simulation[fulfilled_units]), fact_inventory_simulation[policy_name] = "Baseline Legacy Rule")
+VAR TotalDemand = CALCULATE(SUM(fact_inventory_simulation[demand_units]), fact_inventory_simulation[policy_name] = "Baseline Legacy Rule")
+RETURN
+DIVIDE(Fulfilled, TotalDemand, 0)
+
+// 1.7 Stockout Incident Rate (Optimized)
+Stockout Rate Optimized = 
+VAR StockoutDays = CALCULATE(SUM(fact_inventory_simulation[is_stockout]), fact_inventory_simulation[policy_name] = "SmartStock Optimized")
+VAR TotalDays = CALCULATE(COUNTROWS(fact_inventory_simulation), fact_inventory_simulation[policy_name] = "SmartStock Optimized")
+RETURN
+DIVIDE(StockoutDays, TotalDays, 0)
+
+// 1.8 Total Modeled Inventory Cost (Optimized)
+Total Cost Optimized = 
+CALCULATE(
+    SUM(fact_inventory_simulation[total_cost]),
+    fact_inventory_simulation[policy_name] = "SmartStock Optimized"
+)
+
+// 1.9 Total Modeled Inventory Cost (Baseline)
+Total Cost Baseline = 
+CALCULATE(
+    SUM(fact_inventory_simulation[total_cost]),
+    fact_inventory_simulation[policy_name] = "Baseline Legacy Rule"
+)
+
+// 1.10 Policy Net Cost Savings ($)
+Policy Net Savings = 
+[Total Cost Baseline] - [Total Cost Optimized]
+
+// 1.11 Policy Net Cost Savings (%)
+Policy Savings Pct = 
+DIVIDE([Policy Net Savings], [Total Cost Baseline], 0)
+
+
+// ==============================================================================
+// PAGE 2: DEMAND PLANNING & FORECAST EVALUATION
+// ==============================================================================
+
+// 2.1 Total Historical Demand Units
+Historical Demand Units = 
+SUM(fact_daily_demand[demand_units])
+
+// 2.2 Total Historical Revenue ($)
+Total Historical Revenue = 
+SUM(fact_daily_demand[revenue])
+
+// 2.3 Total Historical Gross Profit ($)
+Total Gross Profit = 
+SUM(fact_daily_demand[gross_profit])
+
+// 2.4 Gross Margin Percentage
+Gross Margin Pct = 
+DIVIDE([Total Gross Profit], [Total Historical Revenue], 0)
+
+// 2.5 Forecast Actual Demand (Held-Out Test Window)
+Forecast Actual Units = 
+SUM(fact_demand_forecasts[actual_units])
+
+// 2.6 Forecast Predicted Demand
+Forecast Predicted Units = 
+SUM(fact_demand_forecasts[forecast_units])
+
+// 2.7 Weighted Absolute Percentage Error (WAPE)
+Forecast WAPE Pct = 
+VAR SumAbsError = SUM(fact_demand_forecasts[absolute_error])
+VAR SumActual = SUM(fact_demand_forecasts[actual_units])
+RETURN
+DIVIDE(SumAbsError, SumActual, 0)
+
+// 2.8 Forecast Accuracy (1 - WAPE)
+Forecast Accuracy Pct = 
+1.0 - [Forecast WAPE Pct]
+
+// 2.9 Mean Absolute Error (MAE)
+Forecast MAE = 
+AVERAGE(fact_demand_forecasts[absolute_error])
+
+// 2.10 Root Mean Squared Error (RMSE)
+Forecast RMSE = 
+SQRT(AVERAGE(fact_demand_forecasts[squared_error]))
+
+// 2.11 Forecast Bias (Over / Under-Prediction Tendency)
+Forecast Bias = 
+AVERAGE(fact_demand_forecasts[error])
+
+
+// ==============================================================================
+// PAGE 3: INVENTORY HEALTH & STOCK BUFFERING
+// ==============================================================================
+
+// 3.1 Total Safety Stock Units (Variable LT Stochastic)
+Total Safety Stock Units = 
+SUM(fact_inventory_snapshot[safety_stock_variable_lt])
+
+// 3.2 Total Reorder Point Units
+Total Reorder Point Units = 
+SUM(fact_inventory_snapshot[reorder_point])
+
+// 3.3 Average Days of Inventory Coverage (DOH / DOI)
+Avg Days of Coverage = 
+AVERAGE(fact_inventory_snapshot[days_of_coverage])
+
+// 3.4 SKU Nodes Triggering Replenishment (Below ROP)
+Nodes Below ROP Count = 
+CALCULATE(
+    COUNTROWS(fact_inventory_snapshot),
+    fact_inventory_snapshot[is_below_rop] = 1
+)
+
+// 3.5 Total Inventory Replenishment Deficit (Units)
+Total Replenishment Deficit Units = 
+SUMX(
+    FILTER(fact_inventory_snapshot, fact_inventory_snapshot[is_below_rop] = 1),
+    fact_inventory_snapshot[reorder_point] - fact_inventory_snapshot[inventory_position]
+)
+
+// 3.6 Capital Tied Up in Excess / Slow Moving Inventory (>45 Days Coverage)
+Slow Moving Capital Tied = 
+SUMX(
+    FILTER(fact_inventory_snapshot, fact_inventory_snapshot[days_of_coverage] > 45),
+    fact_inventory_snapshot[on_hand_inventory] * RELATED(dim_products[unit_cost])
+)
+
+// 3.7 Recommended PO Spend Value ($)
+Recommended PO Spend = 
+SUMX(
+    FILTER(fact_inventory_snapshot, fact_inventory_snapshot[is_below_rop] = 1),
+    VAR OrderQty = MAX(fact_inventory_snapshot[eoq], RELATED(dim_products[moq]))
+    RETURN OrderQty * RELATED(dim_products[unit_cost])
+)
+
+
+// ==============================================================================
+// PAGE 4: SUPPLIER PERFORMANCE & VENDOR RISK
+// ==============================================================================
+
+// 4.1 Inbound Purchase Orders Count
+Total Inbound POs = 
+COUNTROWS(fact_purchase_orders)
+
+// 4.2 Inbound Spend ($)
+Total Inbound Spend = 
+SUM(fact_purchase_orders[total_po_cost])
+
+// 4.3 Supplier On-Time Delivery Rate (OTD %)
+Supplier OTD Rate Pct = 
+VAR OnTimePOs = CALCULATE(COUNTROWS(fact_purchase_orders), fact_purchase_orders[is_on_time] = 1)
+VAR TotalPOs = COUNTROWS(fact_purchase_orders)
+RETURN
+DIVIDE(OnTimePOs, TotalPOs, 0)
+
+// 4.4 Average Actual Lead Time (Days)
+Avg Actual Lead Time Days = 
+AVERAGE(fact_purchase_orders[actual_lead_time_days])
+
+// 4.5 Average Contracted Lead Time (Days)
+Avg Contracted Lead Time Days = 
+AVERAGE(fact_purchase_orders[contracted_lead_time_days])
+
+// 4.6 Average Lead Time Variance / Delay (Days)
+Avg Lead Time Delay Days = 
+AVERAGE(fact_purchase_orders[lead_time_variance_days])
+
+// 4.7 Delayed Inbound PO Count
+Late Inbound PO Count = 
+CALCULATE(
+    COUNTROWS(fact_purchase_orders),
+    fact_purchase_orders[is_on_time] = 0
+)
+
+
+// ==============================================================================
+// PAGE 5: DECISION SIMULATOR & SCENARIO SENSITIVITY
+// ==============================================================================
+
+// 5.1 Scenario Working Capital ($)
+Scenario Working Capital = 
+SELECTEDVALUE(fact_scenario_analysis[Total_Working_Capital_USD])
+
+// 5.2 Scenario Annual Policy Cost ($)
+Scenario Annual Cost = 
+SELECTEDVALUE(fact_scenario_analysis[Total_Annual_Policy_Cost_USD])
+
+// 5.3 Scenario Cost Variance vs Baseline ($)
+Scenario Cost Variance USD = 
+SELECTEDVALUE(fact_scenario_analysis[Cost_Variance_vs_Base_USD])
+
+// 5.4 Scenario Cost Variance vs Baseline (%)
+Scenario Cost Variance Pct = 
+SELECTEDVALUE(fact_scenario_analysis[Cost_Variance_Pct])
+
+// 5.5 Scenario High-Risk Exposure Count
+Scenario High Risk Count = 
+SELECTEDVALUE(fact_scenario_analysis[High_Risk_Node_Count])

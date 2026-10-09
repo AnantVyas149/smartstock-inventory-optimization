@@ -1,0 +1,4 @@
+warehouse_id,warehouse_name,city,state,region,storage_capacity_units,annual_holding_cost_rate,fixed_order_cost,handling_cost_per_unit
+WH-EAST,East Coast Distribution Center,Allentown,PA,East,150000,0.24,85.0,0.45
+WH-CENTRAL,Midwest Logistics Hub,Plainfield,IN,Central,250000,0.2,75.0,0.35
+WH-WEST,Pacific Inland Gateway,Reno,NV,West,180000,0.25,95.0,0.5

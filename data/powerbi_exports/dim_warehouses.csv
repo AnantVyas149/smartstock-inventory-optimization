@@ -1,0 +1,4 @@
+warehouse_id,store_id,warehouse_name,city,state,region,storage_capacity_units,annual_holding_cost_rate,fixed_order_cost,handling_cost_per_unit
+WH-CA1,CA_1,Pacific Regional DC (Store CA_1),Los Angeles,CA,West,180000,0.25,85.0,0.4
+WH-TX1,TX_1,South Central Hub (Store TX_1),Dallas,TX,South,240000,0.2,75.0,0.35
+WH-WI1,WI_1,Midwest Distribution Hub (Store WI_1),Milwaukee,WI,Midwest,150000,0.22,80.0,0.38

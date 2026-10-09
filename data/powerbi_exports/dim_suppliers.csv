@@ -1,0 +1,9 @@
+supplier_id,supplier_name,country,category_specialty,contracted_lead_time_days,lead_time_std_days,target_on_time_rate,historical_on_time_rate,payment_terms
+SUP-001,National Fresh Foods Co,USA,FOODS,5,1.0,0.96,0.96,Net 15
+SUP-002,Prairie Valley Dairy & Dry Goods,USA,FOODS,4,0.8,0.98,0.97,Net 30
+SUP-003,Harvest Prime Provisions,USA,FOODS,7,1.4,0.94,0.94,Net 30
+SUP-004,Apex CPG & Chemical Cleaners,USA,HOUSEHOLD,10,1.8,0.95,0.95,Net 45
+SUP-005,CleanLiving Home Products,USA,HOUSEHOLD,14,2.5,0.92,0.91,Net 45
+SUP-006,Global Craft & Hobby Importers,Canada,HOBBIES,21,3.8,0.9,0.88,Net 60
+SUP-007,Pacific Leisure Goods Ltd,Taiwan,HOBBIES,28,5.2,0.86,0.82,Letter of Credit
+SUP-008,Keystone General Merchandise,USA,HOUSEHOLD,12,2.1,0.93,0.93,Net 30

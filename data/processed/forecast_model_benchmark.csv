@@ -1,0 +1,13 @@
+MAE,RMSE,WAPE_pct,Accuracy_pct,Bias,Model,Horizon
+1.475,3.166,97.54,2.46,-0.092,Naive Baseline,7-Day
+1.477,3.19,93.66,6.34,-0.157,Naive Baseline,14-Day
+1.458,3.005,93.64,6.36,-0.137,Naive Baseline,28-Day
+1.455,3.323,96.22,3.78,-0.055,Seasonal Naive (sNaive-7),7-Day
+1.443,3.276,91.54,8.46,-0.12,Seasonal Naive (sNaive-7),14-Day
+1.427,3.091,91.65,8.35,-0.1,Seasonal Naive (sNaive-7),28-Day
+1.141,2.38,75.45,24.55,0.034,Exponential Smoothing (Holt-Winters),7-Day
+1.165,2.499,73.91,26.09,-0.031,Exponential Smoothing (Holt-Winters),14-Day
+1.16,2.353,74.47,25.53,-0.013,Exponential Smoothing (Holt-Winters),28-Day
+1.006,2.435,66.52,33.48,-0.492,LightGBM Regressor,7-Day
+1.032,2.534,65.46,34.54,-0.516,LightGBM Regressor,14-Day
+1.03,2.408,66.12,33.88,-0.483,LightGBM Regressor,28-Day

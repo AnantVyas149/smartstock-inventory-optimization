@@ -1,0 +1,3 @@
+policy_name,total_demand,total_fulfilled,total_lost_sales,stockout_occurrences,total_observations,avg_inventory,total_holding_cost,total_ordering_cost,total_stockout_cost,total_modeled_cost,fill_rate_pct,stockout_rate_pct,avg_working_capital
+Baseline Legacy Rule,6540,5478,1062,268,4200,43.61404761904762,254.34,13785.0,2798.08,16836.64,83.76,6.38,14707.33
+SmartStock Optimized,6540,5987,553,110,4200,235.06285714285715,1085.259,13200.0,1415.56,15701.52,91.54,2.62,63291.82

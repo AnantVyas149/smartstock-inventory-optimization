@@ -1,0 +1,23 @@
+# Raw M5 large datasets (>100MB)
+data/raw/sales_train_validation.csv
+data/raw/sell_prices.csv
+data/raw/*.zip
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.ipynb_checkpoints/
+.pytest_cache/
+
+# Virtual Environments
+venv/
+env/
+.env
+
+# Streamlit
+.streamlit/
+
+# OS specific
+Thumbs.db
+.DS_Store

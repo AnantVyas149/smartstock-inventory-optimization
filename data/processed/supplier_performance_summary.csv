@@ -1,0 +1,9 @@
+supplier_id,supplier_name,country,total_orders,avg_contracted_lt,avg_actual_lt,std_actual_lt,max_actual_lt,otd_rate,total_spend,lt_bias_days,risk_score,risk_tier
+SUP-007,Pacific Leisure Goods Ltd,Taiwan,863,28.0,28.964078794901507,6.8067359876705344,83,0.7995,149225.28,0.96,15.92,High Risk (Critical Review)
+SUP-006,Global Craft & Hobby Importers,Canada,940,21.0,21.113829787234042,4.128502993556122,55,0.8862,131963.04,0.11,9.78,Moderate Risk (Watchlist)
+SUP-008,Keystone General Merchandise,USA,554,12.0,11.992779783393502,2.3322455085940845,32,0.9025,124938.24,-0.01,8.76,Moderate Risk (Watchlist)
+SUP-005,CleanLiving Home Products,USA,570,14.0,13.87719298245614,2.671664603821174,43,0.9246,98472.95999999999,-0.12,7.59,Moderate Risk (Watchlist)
+SUP-003,Harvest Prime Provisions,USA,923,7.0,6.848320693391116,1.3077297714660676,23,0.9372,176695.44,-0.15,6.88,Moderate Risk (Watchlist)
+SUP-001,National Fresh Foods Co,USA,783,5.0,4.9029374201788,0.8631584509370368,14,0.9604,109895.64,-0.1,5.43,Low Risk (Preferred)
+SUP-004,Apex CPG & Chemical Cleaners,USA,619,10.0,9.72697899838449,1.377617808544539,21,0.9467,148629.48,-0.27,5.42,Low Risk (Preferred)
+SUP-002,Prairie Valley Dairy & Dry Goods,USA,968,4.0,3.8832644628099175,0.6682401251325356,13,0.9742,208869.6,-0.12,4.63,Low Risk (Preferred)

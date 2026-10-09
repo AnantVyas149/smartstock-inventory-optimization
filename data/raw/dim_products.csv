@@ -1,0 +1,51 @@
+sku_id,sku_name,category,unit_cost,unit_price,moq,batch_order_multiple,weight_kg,preferred_supplier_id,fixed_ordering_cost
+SKU-001,High-Pressure Hydraulic Cylinder 4in,Hydraulics & Fluid Power,145.0,240.0,10,5,15.0,SUP-002,120.0
+SKU-002,Variable Displacement Piston Pump,Hydraulics & Fluid Power,310.0,495.0,5,5,22.0,SUP-002,160.0
+SKU-003,Proportional Directional Control Valve,Hydraulics & Fluid Power,185.0,290.0,8,5,8.5,SUP-008,160.0
+SKU-004,Hydraulic Filter Return Line 10u,Hydraulics & Fluid Power,24.0,42.0,50,12,1.8,SUP-001,80.0
+SKU-005,High-Tensile Hydraulic Hose 1/2in 50ft,Hydraulics & Fluid Power,68.0,115.0,20,5,6.2,SUP-002,120.0
+SKU-006,Quick-Disconnect Hydraulic Coupling 3/4in,Hydraulics & Fluid Power,18.5,32.0,40,10,0.9,SUP-003,80.0
+SKU-007,Hydraulic Accumulator 1-Gallon 3000psi,Hydraulics & Fluid Power,220.0,360.0,6,5,14.0,SUP-002,160.0
+SKU-008,Cartridge Relief Valve 5000psi,Hydraulics & Fluid Power,54.0,92.0,25,6,1.4,SUP-008,120.0
+SKU-009,Digital Pressure Gauge 0-600bar,Hydraulics & Fluid Power,92.0,155.0,15,5,0.6,SUP-006,120.0
+SKU-010,Hydraulic Reservoir Breather Cap,Hydraulics & Fluid Power,12.0,22.5,60,15,0.4,SUP-001,80.0
+SKU-011,ISO Standard Compact Pneumatic Cylinder 32mm,Pneumatics & Automation,42.0,75.0,25,6,2.1,SUP-005,80.0
+SKU-012,5/2 Solenoid Air Valve 24VDC,Pneumatics & Automation,38.0,68.0,30,7,0.8,SUP-005,80.0
+SKU-013,Modular Air Filter-Regulator-Lubricator FRL,Pneumatics & Automation,78.0,135.0,15,5,3.2,SUP-005,120.0
+SKU-014,Polyurethane Tubing 8mm Blue 100m Roll,Pneumatics & Automation,28.0,49.0,20,5,4.5,SUP-003,80.0
+SKU-015,Pneumatic Gripper Parallel 20mm,Pneumatics & Automation,112.0,189.0,10,5,1.1,SUP-005,120.0
+SKU-016,Vacuum Ejector Multi-Stage Venturi,Pneumatics & Automation,64.0,110.0,15,5,0.7,SUP-005,120.0
+SKU-017,Push-In Fitting 8mm x 1/4in NPT (Pack 50),Pneumatics & Automation,22.0,39.0,50,12,1.5,SUP-003,80.0
+SKU-018,Linear Guided Slide Air Table 16mm,Pneumatics & Automation,165.0,275.0,8,5,3.8,SUP-005,160.0
+SKU-019,Speed Controller In-Line 6mm (Pack 10),Pneumatics & Automation,15.0,28.0,50,12,0.5,SUP-003,80.0
+SKU-020,Rotary Actuator Rack & Pinion 180deg,Pneumatics & Automation,195.0,320.0,6,5,4.2,SUP-005,160.0
+SKU-021,Grade 8 Heavy Hex Bolt 1/2-13 x 2in (Box 100),Fasteners & Hardware,18.0,32.0,100,25,8.0,SUP-003,80.0
+SKU-022,Grade 8 Stover Lock Nut 1/2-13 (Box 200),Fasteners & Hardware,14.0,26.0,120,30,6.5,SUP-003,80.0
+SKU-023,Socket Head Cap Screw M10 x 50mm 12.9 (Box 50),Fasteners & Hardware,16.5,30.0,100,25,4.2,SUP-003,80.0
+SKU-024,Stainless 316 Flat Washer 1/2in (Box 500),Fasteners & Hardware,21.0,39.0,80,20,7.0,SUP-003,80.0
+SKU-025,Spring Pin Slotted 6mm x 40mm (Pack 200),Fasteners & Hardware,9.5,18.0,150,37,2.2,SUP-003,80.0
+SKU-026,Viton O-Ring Assortment Metric (Kit 400pcs),Fasteners & Hardware,32.0,58.0,40,10,1.2,SUP-001,80.0
+SKU-027,Structural Rivet Heavy Duty 1/4in (Pack 250),Fasteners & Hardware,27.0,48.0,60,15,5.0,SUP-007,80.0
+SKU-028,Threaded Rod B7 Alloy Steel 3/4in x 3ft,Fasteners & Hardware,24.0,44.0,50,12,6.8,SUP-007,80.0
+SKU-029,Hardened Steel Dowel Pin 8mm x 30mm (Pack 100),Fasteners & Hardware,15.0,28.0,90,22,2.0,SUP-003,80.0
+SKU-030,Retaining Ring External Snap Ring 25mm (Pack 100),Fasteners & Hardware,11.0,21.0,120,30,0.8,SUP-003,80.0
+SKU-031,Inductive Proximity Sensor M18 PNP NO,Sensors & Controls,34.0,62.0,30,7,0.3,SUP-006,80.0
+SKU-032,Photoelectric Retroreflective Sensor 4m,Sensors & Controls,58.0,105.0,20,5,0.4,SUP-006,120.0
+SKU-033,Ultrasonic Distance Sensor 0.2-2m Analog,Sensors & Controls,115.0,195.0,12,5,0.5,SUP-006,120.0
+SKU-034,RTD PT100 Temperature Probe 1/2in NPT,Sensors & Controls,46.0,82.0,25,6,0.6,SUP-006,80.0
+SKU-035,Rotary Optical Incremental Encoder 1024PPR,Sensors & Controls,135.0,225.0,10,5,0.8,SUP-004,120.0
+SKU-036,Safety Light Curtain 300mm Resolution 14mm,Sensors & Controls,380.0,590.0,4,5,4.0,SUP-004,160.0
+SKU-037,Solid State Relay 3-Phase 480VAC 40A,Sensors & Controls,72.0,125.0,18,5,1.2,SUP-004,120.0
+SKU-038,Pressure Transmitter 4-20mA 0-100bar,Sensors & Controls,98.0,168.0,15,5,0.5,SUP-006,120.0
+SKU-039,Programmable Logic Controller CPU 24DI/16DO,Sensors & Controls,340.0,520.0,5,5,1.8,SUP-004,160.0
+SKU-040,Vibration & Temperature Accelerometer IO-Link,Sensors & Controls,160.0,260.0,8,5,0.4,SUP-006,160.0
+SKU-041,Three-Phase Induction Motor 2HP 1750RPM,Power Transmission & Motors,215.0,345.0,5,5,26.0,SUP-007,160.0
+SKU-042,Helical Bevel Inline Gear Reducer 10:1,Power Transmission & Motors,295.0,465.0,4,5,32.0,SUP-007,160.0
+SKU-043,Variable Frequency Drive VFD 3HP 230/460V,Power Transmission & Motors,240.0,395.0,6,5,3.5,SUP-004,160.0
+SKU-044,Roller Chain ANSI #50 Riveted 10ft Box,Power Transmission & Motors,35.0,62.0,30,7,4.8,SUP-007,80.0
+SKU-045,Precision Ball Bearing 6205-2RS (Pack 10),Fasteners & Hardware,28.0,52.0,40,10,1.5,SUP-001,80.0
+SKU-046,Taper-Lock Bushing 2517 Bore 1.5in,Power Transmission & Motors,19.0,34.0,50,12,2.2,SUP-007,80.0
+SKU-047,Flexible Jaw Coupling Spider 98 Shore A,Power Transmission & Motors,26.0,48.0,40,10,1.1,SUP-001,80.0
+SKU-048,Timing Belt HTD 8M Pitch 30mm Wide 1040mm,Power Transmission & Motors,31.0,56.0,30,7,0.8,SUP-001,80.0
+SKU-049,Pillow Block Mounted Bearing 1-7/16in Bore,Power Transmission & Motors,42.0,74.0,25,6,3.4,SUP-007,80.0
+SKU-050,Planetary Servo Gearbox Low Backlash 5:1,Power Transmission & Motors,365.0,580.0,4,5,5.5,SUP-005,160.0
